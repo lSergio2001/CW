@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+bool CO(long a)
+{
+    switch(a)
+    {
+        case 2: return false; break;
+
+        case 1: return false; break;
+
+        default: break;
+    };
+
+    if(a % 2 == 0)
+    {
+        return true;
+    };
+
+    int k;
+    k = a / 2;
+    for( long i = 3; i <= k; i++) {
+        if( a % i == 0) {return true;}
+        else {return false;};
+    };
+}
+
+int main(int argc, char** argv)
+{
+long M;
+cin >> M;
+long *arr = new long [M];
+for( long i = 0; i < M; i++)
+{
+    cin >> arr[i];
+    if (!( CO(arr[i]))) {arr[i] = 0;};
+};
+for(long i = 0; i < M; i++)
+{
+    if(arr[i] == 0) {continue;}
+    cout << arr[i] << " ";
+};
+delete [] arr;
+
+system("PAUSE");
+return 0;
+}
