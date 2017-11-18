@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cstdlib>
+#include <math.h>
+
+using namespace std;
+
+bool we(long S)
+{
+int check = 1;
+long H = sqrt(S);
+
+for(long i = 1; i <= H; i++) {
+    if(S % i == 0) check++;
+};
+
+if(check == 3) {return true;}
+else {return false;};
+}
+
+int main(int argc, char** argv)
+{
+long P;
+cout << "Enter the array number: " << endl;
+cin >> P;
+long* arr = new long [P];
+for( long i = 0; i < P; i++)
+{
+cin >> arr[i];
+if(we(arr[i]) == true) {cout << arr[i] << endl;};
+};
+
+system("PAUSE");
+return 0;
+}
